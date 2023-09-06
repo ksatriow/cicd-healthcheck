@@ -12,5 +12,6 @@ WORKDIR /usr/src/app
 RUN chmod -R 555 /usr/src/app
 COPY --from=builder /usr/src/app .
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD curl --silent --fail http://localhost:4000 || exit 1
 USER appuser
 CMD [ "node", "main.js" ]
