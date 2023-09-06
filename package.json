@@ -17,7 +17,7 @@
   "scripts": {
     "start": "node main.js",
     "test": "mocha test.js",
-    "release": "release-it",
+    "release": "release-it --ci",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   },
