@@ -32,7 +32,7 @@ jobs:
           git config user.email "andkukuh@gmail.com"
       - run: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}        
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}        
 
     #   - name: Semantic versioning
     #     id: versioning
