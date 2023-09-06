@@ -1,6 +1,6 @@
 {
   "name": "cicd-healthcheck",
-  "version": "0.1.12",
+  "version": "0.1.15",
   "repository": {
     "type": "git",
     "url": "https://github.com/ksatriow/cicd-healthcheck.git"
