@@ -18,10 +18,12 @@
     "start": "node main.js",
     "test": "mocha test.js",
     "release": "release-it --ci",
+    "releaseci": "dotenv release-it --",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8.48.0",
     "eslint-config-google": "^0.14.0",
     "release-it": "^16.1.5"

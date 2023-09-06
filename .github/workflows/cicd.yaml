@@ -17,6 +17,13 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Set environment variables
+        env:
+            ENV_FILE: ${{ secrets.ENV_FILE }}
+        run: |
+            echo $ENV_FILE | base64 --decode >> /home/runner/work/cicd-healthcheck/cicd-healthcheck/.env
+            ls -l
+          
       - name: Install dependencies
         run: npm install
 
@@ -24,13 +31,13 @@ jobs:
         run: npm run lint        
 
       - name: Run Testing
-        run: npm run test -- --exit
+        run: npm run test -- --exit        
 
       - name: git config
         run: |
           git config user.name "ksatriow"
           git config user.email "andkukuh@gmail.com"
-      - run: npm run release
+      - run: npm run releaseci
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}        
 
