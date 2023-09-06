@@ -121,21 +121,6 @@ jobs:
           platforms: "linux/amd64"
           sbom: false
           provenance: false
-      
-      # - name: Build and push Docker image on PR
-      #   id: build-and-push-pr
-      #   if: ${{ github.event_name == 'pull_request_target' }}
-      #   uses: docker/build-push-action@v4.0.0
-      #   with:
-      #     context: .
-      #     load: true
-      #     file: Dockerfile
-      #     push: false
-      #     tags: ${{ steps.meta.outputs.tags }}
-      #     labels: ${{ steps.meta.outputs.labels }}
-      #     platforms: "linux/amd64"
-      #     sbom: false
-      #     provenance: false          
 
       - name: Analyze for critical and high CVEs
         id: docker-scout-cves
