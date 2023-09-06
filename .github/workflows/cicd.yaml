@@ -72,17 +72,15 @@ jobs:
           GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
   
-      - name: Run static analysis Trivy
+      - name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@master
         with:
             scan-type: 'fs'
-            security-checks: 'vuln,secret,config'
             ignore-unfixed: true
             format: 'sarif'
             output: 'trivy-results.sarif'
             severity: 'CRITICAL'
   
-        # Checkov - Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code
       - name: Run Checkov
         run: |
              docker run -t -v ${{ github.workspace }}:/tf --workdir /tf bridgecrew/checkov --directory . --skip-check CKV2_GHA_1
