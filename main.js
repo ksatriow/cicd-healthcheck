@@ -22,4 +22,4 @@ const server = app.listen(port, () => {
   console.log(`Environment: ${environment}`);
 });
 
-module.exports = { app, server }; // Ekspor objek app dan server
+module.exports = {app, server}; // Ekspor objek app dan server

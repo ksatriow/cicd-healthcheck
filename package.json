@@ -1,4 +1,6 @@
 {
+  "name": "cicd-healthcheck",
+  "version": "0.0.1",
   "dependencies": {
     "-": "^0.0.1",
     "chai": "^4.3.8",
@@ -10,6 +12,14 @@
   },
   "scripts": {
     "start": "node main.js",
-    "test": "mocha"
+    "test": "mocha test.js",
+    "release": "release-it",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "eslint-config-google": "^0.14.0",
+    "release-it": "^16.1.5"
   }
 }

@@ -1,7 +1,6 @@
-const express = require('express');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const { app } = require('./main'); 
+const {app} = require('./main');
 
 chai.use(chaiHttp);
 const expect = chai.expect;
@@ -15,21 +14,16 @@ describe('Health Check Endpoint', () => {
     });
   });
 
-  after((done) => {
-    server.close(() => {
-      console.log('Server stopped');
-    });
-  });
-
   it('should return "OK" when accessing /health', (done) => {
     chai
-      .request(server)
+      .request(server) // Gunakan server yang telah dibuat
       .get('/health')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.text).to.equal('OK');
-        done();
+        done(); // Panggil done() ketika pengujian selesai
       });
   });
 
 });
+
