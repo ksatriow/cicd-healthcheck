@@ -1,0 +1,10 @@
+version: "3.0"
+services:
+  healthcheck:
+    image: kukuhsatrio/healthcheck:latest
+    container_name: healthcheck
+    ports:
+      - 4000:4000
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
