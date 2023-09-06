@@ -16,14 +16,12 @@ describe('Health Check Endpoint', () => {
 
   it('should return "OK" when accessing /health', (done) => {
     chai
-      .request(server) // Gunakan server yang telah dibuat
-      .get('/health')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.text).to.equal('OK');
-        done(); // Panggil done() ketika pengujian selesai
-      });
+        .request(server) // Gunakan server yang telah dibuat
+        .get('/health')
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.text).to.equal('OK');
+          done(); // Panggil done() ketika pengujian selesai
+        });
   });
-
 });
-
