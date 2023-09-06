@@ -42,7 +42,17 @@ jobs:
           git config user.email "andkukuh@gmail.com"
       - run: npm run releaseci
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}        
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}      
+
+      - name: package.json info
+        id: info
+        uses: jaywcjlove/github-action-package@main
+        with:
+            rename: '@jaywcjlove/github-action-package-test'
+        
+      - run: echo "name - ${{ steps.info.outputs.name }}"
+      - run: echo "version - ${{ steps.info.outputs.version }}"
+        
 
     #   - name: Semantic versioning
     #     id: versioning
