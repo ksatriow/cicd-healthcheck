@@ -1,6 +1,10 @@
 {
   "name": "cicd-healthcheck",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ksatriow/cicd-healthcheck.git"
+  },
   "dependencies": {
     "-": "^0.0.1",
     "chai": "^4.3.8",
@@ -21,5 +25,8 @@
     "eslint": "^8.48.0",
     "eslint-config-google": "^0.14.0",
     "release-it": "^16.1.5"
+  },
+  "npm": {
+    "publish": false
   }
 }
