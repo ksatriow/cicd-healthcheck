@@ -51,8 +51,10 @@ jobs:
           sudo npm install -g jshint
   
       - name: Run scan with JSHint
-        run: script/jshint-script.sh
-  
+        run: |
+          chmod +x script/jshint-script.sh
+          script/jshint-script.sh
+
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
