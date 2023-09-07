@@ -1,0 +1,11 @@
+version: 2
+sca:
+  minimum-severity: CRITICAL
+  ignored-paths:
+    - folder/general/
+    - sample/file.lock
+  ignored_vulnerabilities:
+    - identifier: GHSA-abcd-efgh-1234
+      path: Pipfile.lock
+      comment: 'Vulnerability does not concern this repository.'
+      until: '2024-01-01T00:00:01Z'
