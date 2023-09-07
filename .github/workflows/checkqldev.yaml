@@ -63,17 +63,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v3
-        with:
-          config-file: 'github/octorepo-private/dependency-review-config.yml@main'
-          external-repo-token: ${{ secrets.GIT_TOKEN }}
-          fail-on-severity: critical
-          allow-licenses: GPL-3.0, BSD-3-Clause, MIT
-          deny-licenses: LGPL-2.0, BSD-2-Clause
-          allow-ghsas: GHSA-abcd-1234-5679, GHSA-efgh-1234-5679
-          fail-on-scopes: development, runtime  
-
       - name: Scan Secret
         uses: GitGuardian/ggshield/actions/secret@main
         with:

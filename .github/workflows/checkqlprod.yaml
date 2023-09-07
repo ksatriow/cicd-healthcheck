@@ -11,7 +11,7 @@ env:
   DOCKERFILE_PATH: Dockerfile
 
 permissions:
-  contents: write      
+  contents: write  
 
 jobs:
 
@@ -45,9 +45,11 @@ jobs:
         run: |
           git config user.name "ksatriow"
           git config user.email "andkukuh@gmail.com"
-      - run: npm run releaseci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}      
+      
+      # - name: Run Release Tag
+      #   run: npm run releaseci
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}      
 
       - name: package.json info
         id: info
