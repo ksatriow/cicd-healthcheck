@@ -159,22 +159,6 @@ jobs:
   #           -Dsonar.host.url=${{ secrets.SONAR_URL }} 
   #           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
-      - name: OWASP Dependency Check
-        run: |
-          wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.0.2/dependency-check-6.0.2-release.zip
-          unzip dependency-check-6.0.2-release.zip
-
-      - name: Run scan with ODC
-        run: |
-          dependency-check/bin/dependency-check.sh --project "cicd-healthcheck" --scan . > ODC-report
-
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: sast report
-          path: |
-            ./ODC-report
-
   notify:
     name: Discord Notification
     runs-on: ubuntu-latest

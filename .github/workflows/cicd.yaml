@@ -15,7 +15,7 @@ jobs:
   deploy-development:
     name: Deploy to testing
     environment:
-      name: developmment
+      name: development
     if: github.event.ref == 'refs/heads/development'
     runs-on: ubuntu-latest
     steps:
