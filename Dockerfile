@@ -27,6 +27,10 @@ WORKDIR /usr/src/app
 
 COPY --chown=node:node package*.json ./
 
+RUN npm install -g npm@10.0.0
+
+RUN npm install
+
 RUN npm ci
 
 COPY --chown=node:node . .
