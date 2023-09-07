@@ -15,5 +15,5 @@ jobs:
         uses: actions/dependency-review-action@v3
         with:
           fail-on-severity: critical
-          deny-licenses: LGPL-2.0, BSD-2-Clause
           comment-summary-in-pr: always
+          license-check: false

@@ -1,0 +1,31 @@
+# References : https://bhuvanprasad12.medium.com/gitops-implementation-using-github-actions-argocd-in-kubernetes-cluster-a864131b6a05
+# https://medium.com/@luiz.jal.j/deploying-a-web-server-in-go-automatically-using-argocd-4df3c749820
+# https://medium.com/cloud-native-daily/how-to-perform-security-checks-on-kubernetes-manifests-in-a-ci-cd-pipeline-dcd9617b729c
+# https://medium.com/@tanmay8928_27546/ci-cd-with-github-github-actions-argo-cd-and-kubernetes-cluster-192b019129f6
+# https://www.learnsteps.com/devops-interview-question-how-will-you-set-up-a-ci-cd-pipeline/
+# https://cloud-native.devsecopsgirl.in/dast/
+name:  Deploy
+
+on:
+  push:
+    branches: [ main, development ]
+
+jobs:
+
+  deploy-development:
+    name: Deploy to testing
+    environment:
+      name: developmment
+    if: github.event.ref == 'refs/heads/development'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Deploy to testing using ${{ secrets.mysecret }}
+        
+  deploy-production:
+    name: Deploy to production
+    environment:
+      name: Production
+    needs: [deploy-development]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Deploy to production using ${{ secrets.mysecret }}

@@ -1,3 +1,4 @@
+# References : https://www.specfy.io/blog/1-efficient-dockerfile-nodejs-in-7-steps
 # Tahap pertama: Build aplikasi
 FROM node:18-alpine as builder
 WORKDIR /usr/src/app
