@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.namespace }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.namespace }}
+    chart: {{ template "helloworld.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.hello.replicas }}
+  strategy: {}
+  selector:
+    matchLabels:
+      app: {{ .Values.namespace }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.namespace }}
+    spec: 
+      serviceAccountName: {{ .Values.namespace }}
+      containers:
+        - name: {{ .Values.namespace }}
+          env: 
+          - name: APP_NAME
+            value: {{ .Values.namespace }}
+          image: "{{ .Values.hello.image.name }}:{{ .Values.hello.image.tag }}"
+          imagePullPolicy: {{ .Values.hello.image.pullpolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.hello.container.port }}
+              protocol: {{ .Values.hello.container.protocol }}
+          resources:
+{{ toYaml .Values.hello.resources | indent 12 }}
+          # livenessProbe
+          # volumeMounts
+      # volumes
+      restartPolicy: Always
+status: {}

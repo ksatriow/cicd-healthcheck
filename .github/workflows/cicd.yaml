@@ -4,6 +4,7 @@
 # https://medium.com/@tanmay8928_27546/ci-cd-with-github-github-actions-argo-cd-and-kubernetes-cluster-192b019129f6
 # https://www.learnsteps.com/devops-interview-question-how-will-you-set-up-a-ci-cd-pipeline/
 # https://cloud-native.devsecopsgirl.in/dast/
+# https://docs.akto.io/testing/run-tests-in-cicd
 name:  Deploy
 
 on:
