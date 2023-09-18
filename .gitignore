@@ -1,5 +1,7 @@
 build/
+dist/
 node_modules/
 .node_modules/
 .env
-package-lock.json
+gitguardian.md
+report.md
