@@ -11,7 +11,7 @@ pipeline {
      
     stage('Build') {
       when {
-          expression { currentBuild.changeSets.any { it.branch == 'origin/develop' || it.branch == 'origin/main' } }
+          branch 'development'
       }
       steps {
         sh 'npm install'
@@ -21,7 +21,7 @@ pipeline {
                
     stage('Test') {
       when {
-          expression { currentBuild.changeSets.any { it.branch == 'origin/develop' || it.branch == 'origin/main' } }
+          branch 'development'
       }
       steps {
         sh 'npm run test'
@@ -30,7 +30,7 @@ pipeline {
 
     stage('Deploy') {
       when {
-          expression { currentBuild.changeSets.any { it.branch == 'origin/main' } }
+          branch 'main'
       }
       steps {
         sh 'npm run dev'
