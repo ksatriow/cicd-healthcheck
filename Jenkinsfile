@@ -1,13 +1,13 @@
 pipeline {
   agent any
-  
+
   stages {
         
-    stage('Git') {
-      steps {
-        git 'https://github.com/ksatriow/cicd-healthcheck.git'
-      }
-    }
+    // stage('Git') {
+    //   steps {
+    //     git 'https://github.com/ksatriow/cicd-healthcheck.git'
+    //   }
+    // }
      
     stage('Build') {
       when {
