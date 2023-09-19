@@ -10,9 +10,9 @@ pipeline {
     // }
      
     stage('Build') {
-      when {
-          branch 'development'
-      }
+      // when {
+      //     branch 'development'
+      // }
       steps {
         sh 'npm install'
         sh 'npm run build'
@@ -20,9 +20,9 @@ pipeline {
     }  
                
     stage('Test') {
-      when {
-          branch 'development'
-      }
+      // when {
+      //     branch 'development'
+      // }
       steps {
         sh 'npm run test'
       }
