@@ -1,0 +1,34 @@
+# # OLD IMAGE WORK
+# FROM registry.access.redhat.com/ubi8/nodejs-14:latest
+
+# COPY package*.json ./
+
+# RUN npm clean cache --force
+# RUN npm install -g npm@10.1.0
+# RUN npm install --omit=dev
+
+# FROM registry.access.redhat.com/ubi8/nodejs-14-minimal:latest
+
+# COPY --from=0 /opt/app-root/src/node_modules /opt/app-root/src/node_modules
+# COPY . /opt/app-root/src
+
+# ENV NODE_ENV production
+# ENV PORT 4000
+# EXPOSE 4000
+# CMD ["npm", "start"]
+
+FROM registry.access.redhat.com/ubi8/nodejs-18-minimal:1
+
+RUN mkdir -p /opt/app-root/src
+WORKDIR /opt/app-root/src
+
+COPY package.json /opt/app-root/src
+RUN npm install --only=prod
+COPY . /opt/app-root/src
+
+ENV NODE_ENV production
+ENV PORT 4000
+
+EXPOSE 4000
+
+CMD ["npm", "start"]
